@@ -9,6 +9,8 @@ trigger:
 pool:
   vmImage: 'macos-latest'
 
+continueOnError: true
+
 steps:
 - task: Gradle@2
   inputs:
@@ -54,6 +56,7 @@ steps:
     resultsDir: '$(Build.ArtifactStagingDirectory)/KryptowireResults'
     maxAnalysisTime: 75
     scoreThreshold: 50
+    
 
 - task: PublishBuildArtifacts@1
   inputs:
