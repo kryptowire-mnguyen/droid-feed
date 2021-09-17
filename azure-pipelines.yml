@@ -9,7 +9,6 @@ trigger:
 pool:
   vmImage: 'macos-latest'
 
-continueOnError: true
 
 steps:
 - task: Gradle@2
@@ -49,6 +48,7 @@ steps:
     publishLocation: 'container'
     
 - task: KryptowireMAST@2
+  continueOnError: true
   inputs:
     filepath: '$(Build.SourcesDirectory)/app/build/outputs/apk/release/demo-app.release.apk'
     apikey: 'Yqsx9T83A5T1vENxaU4n5KGupOSNAOHnLl48'
