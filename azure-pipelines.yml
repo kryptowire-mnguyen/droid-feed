@@ -51,6 +51,7 @@ steps:
   continueOnError: true
   inputs:
     filepath: '$(Build.SourcesDirectory)/app/build/outputs/apk/release/demo-app.release.apk'
+    apikey: '${API_KEY}'
     platform: 'android'
     resultsDir: '$(Build.ArtifactStagingDirectory)/KryptowireResults'
     maxAnalysisTime: 0
