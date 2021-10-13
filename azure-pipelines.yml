@@ -53,13 +53,13 @@ steps:
     filepath: '$(Build.SourcesDirectory)/app/build/outputs/apk/release/demo-app.release.apk'
     apikey: '${API_KEY}'
     platform: 'android'
-    resultsDir: '$(Build.ArtifactStagingDirectory)/KryptowireResults'
-    maxAnalysisTime: 0
+    resultsDir: $(Pipeline.Workspace)/KryptowireResults'
+    maxAnalysisTime: 60
     scoreThreshold: 50
 
 
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@1
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)/KryptowireResults'
-    artifactName: 'KryptowireResults'
-    artifactType: 'container'
+    targetPath: '$(Pipeline.Workspace)/KryptowireResults'
+    artifact: 'KryptowireResults'
+    publishLocation: 'pipeline'
