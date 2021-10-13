@@ -63,3 +63,9 @@ steps:
     targetPath: '$(Common.TestResultsDirectory)/KryptowireResults'
     artifact: 'KryptowireResults'
     publishLocation: 'pipeline'
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    artifactName: 'KryptowireResults'
+    targetPath: '$(Pipeline.Workspace)'
