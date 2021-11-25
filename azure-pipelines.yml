@@ -55,8 +55,6 @@ steps:
     platform: 'android'
     resultsDir: '$(Common.TestResultsDirectory)/KryptowireResults'
     maxAnalysisTime: 60
-    scoreThreshold: 50
-
 
 - task: PublishPipelineArtifact@1
   inputs:
