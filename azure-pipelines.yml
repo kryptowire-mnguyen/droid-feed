@@ -51,7 +51,7 @@ steps:
   continueOnError: true
   inputs:
     filepath: '$(Build.SourcesDirectory)/app/build/outputs/apk/release/demo-app.release.apk'
-    apikey: 'Yqsx9T83A5T1vENxaU4n5KGupOSNAOHnLl48'
+    apikey: $(API_KEY)
     platform: 'android'
     resultsDir: '$(Common.TestResultsDirectory)/KryptowireResults'
     maxAnalysisTime: 60
@@ -61,9 +61,3 @@ steps:
     targetPath: '$(Common.TestResultsDirectory)/KryptowireResults'
     artifact: 'KryptowireResults'
     publishLocation: 'pipeline'
-
-- task: DownloadPipelineArtifact@2
-  inputs:
-    buildType: 'current'
-    artifactName: 'KryptowireResults'
-    targetPath: '$(Pipeline.Workspace)'
