@@ -48,7 +48,6 @@ steps:
     publishLocation: 'container'
     
 - task: KryptowireMAST@1
-  continueOnError: true
   inputs:
     filepath: '$(Build.SourcesDirectory)/app/build/outputs/apk/release/demo-app.release.apk'
     apikey: $(API_KEY)
@@ -62,3 +61,4 @@ steps:
     targetPath: '$(Common.TestResultsDirectory)/KryptowireResults'
     artifact: 'KryptowireResults'
     publishLocation: 'pipeline'
+
